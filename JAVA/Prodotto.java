@@ -1,3 +1,4 @@
+package JAVA;
 public class Prodotto
 {
     private String nome;

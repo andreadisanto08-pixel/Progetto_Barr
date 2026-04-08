@@ -1,3 +1,4 @@
+package JAVA;
 public class Dolce extends Prodotto
 {
     public Dolce(String nome,int calorie,double prezzo,String descrizione)

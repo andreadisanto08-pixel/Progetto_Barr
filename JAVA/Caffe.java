@@ -1,3 +1,4 @@
+package JAVA;
 public class Caffe extends Prodotto
 {
     private boolean caffeina;

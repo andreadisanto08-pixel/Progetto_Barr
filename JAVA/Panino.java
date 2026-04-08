@@ -1,3 +1,4 @@
+package JAVA;
 public class Panino extends Prodotto
 {
     private boolean vegetariano;
