@@ -1,0 +1,20 @@
+@startuml
+title Flusso Ordinazione Menu
+
+actor Utente
+participant "Mc" as Sito
+database "Sistema Ordini" as DB
+
+Utente -> Sito: Naviga tra i menu
+Sito -> Utente: Mostra panini e offerte
+
+Utente -> Sito: Seleziona prodotti e clicca "Ordina"
+Sito -> DB: Invia i dettagli dell'ordine
+activate DB
+DB -> DB: Genera ID Ordine e salva nel database
+DB --> Sito: Conferma salvataggio (OK)
+deactivate DB
+
+Sito --> Utente: Mostra "Ordine Ricevuto!" con il numero
+Utente -> Sito : Rilascia feedback (opzionale)
+@enduml
