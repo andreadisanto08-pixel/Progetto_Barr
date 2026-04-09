@@ -1,0 +1,26 @@
+@startuml   
+title Diagramma dei casi d'uso
+
+actor User
+
+package "Sistema di gestione ordini"{
+    usecase "effettua ordine" as  EO
+    usecase "visualizza menu" as VM
+    usecase "confermare ordine" as CO
+    usecase "carrello troppo pieno" as ERR
+}
+
+User --> VM
+User --> EO
+User --> CO
+
+ERR ..> CO : <<extend>>
+
+EO ..> VM : <<include>>
+EO ..> CO : <<include>>
+
+
+
+
+
+
