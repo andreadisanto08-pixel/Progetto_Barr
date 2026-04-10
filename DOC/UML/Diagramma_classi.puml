@@ -1,3 +1,73 @@
 @startuml DiagrammaClassi
 title Diagramma delle Classi - Sistema di Ordinazione McDonald's
+
+class Prodotto{
+   - nome: String 
+   - calorie: int 
+   - prezzo: double
+   - descrizione: String
+   + Prodotto(nome: String, calorie: int, prezzo: double, descrizione: String)
+   + getNome(): String
+   + getCalorie(): int
+   + getPrezzo(): double
+   + getDescrizione(): String
+   + setNome(nome: String): void
+   + setCalorie(calorie: int): void
+   + setPrezzo(prezzo: double): void
+   + setDescrizione(descrizione: String): void
+   + toString(): String
+}
+
+class Panino {
+        - vegetariano: boolean
+        + Panino(nome, calorie, prezzo, descrizione, vegetariano)
+        + getVegetariano() boolean
+        + setVegetariano(vegetariano) void
+        + toString() String
+    }
+
+    class Caffe {
+        - caffeina: boolean
+        + Caffe(nome, calorie, prezzo, descrizione, caffeina)
+        + getCaffeina() boolean
+        + setCaffeina(caffeina) void
+        + toString() String
+    }
+
+    class Dolce {
+        + Dolce(nome, calorie, prezzo, descrizione)
+        + toString() String
+    }
+
+    class Bibita {
+        + Bibita(nome, calorie, prezzo, descrizione)
+        + toString() String
+    }
+
+    class BarManager {
+        - Prodotti: ArrayList~Prodotto~
+        + BarManager()
+        + getProdotti() ArrayList~Prodotto~
+        + aggiungiProdotto(p: Prodotto) void
+    }
+
+    class AggiuntaProdottoException {
+        + AggiuntaProdottoException(messaggio: String)
+    }
+
+    Prodotto <|-- Panino : Eredita
+    Prodotto <|-- Caffe : Eredita
+    Prodotto <|-- Dolce : Eredita
+    Prodotto <|-- Bibita : Eredita
+    BarManager o-- Prodotto : Contiene (Aggregazione)
+    BarManager ..> AggiuntaProdottoException : Lancia
+
+
+
+
+
+
+
+
+
 @enduml
