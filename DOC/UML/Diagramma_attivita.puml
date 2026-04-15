@@ -1,0 +1,19 @@
+@startuml
+title Diagramma di attività
+start
+:l'utente entra nel app;
+:il sistema mostra i menu;
+if(utente aggiunge qualcosa al carrello) then (si)
+    :il sistema aggiunge al carrello quel prodotto;
+    :il sistema mostra il carrello;
+    if(utente conferma l'ordine) then (si)
+        :il sistema registra l'ordine;
+        else (no)
+        :il sistema toglie gli articoli dal carrello;
+        endif
+        else (no)
+        :il sistema continua a mostrare i menu;
+        endif
+:utìle esce dal app;
+stop
+@enduml

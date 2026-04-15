@@ -1,4 +1,4 @@
-@startuml
+@startuml DiagrammaDiSequenza
 title Flusso Ordinazione Menu
 
 actor Utente
