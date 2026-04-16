@@ -1,0 +1,13 @@
+@startuml
+title Diagramma di stato ordine
+
+[*] --> InCorso : L'utente aggiunge prodotti
+InCorso --> InCorso : Aggiunta altri articoli
+InCorso --> Annullato : L'utente non conferma
+
+InCorso --> Confermato : L'utente clicca "Ordina"
+Confermato --> Registrato : Il sistema salva l'ordine nel DB
+
+
+Annullato --> [*]
+@enduml
