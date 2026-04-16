@@ -2,9 +2,9 @@ package JAVA;
 public class Caffe extends Prodotto
 {
     private boolean caffeina;
-    public Caffe(String nome,int calorie,double prezzo,String descrizione,boolean caffeina)
+    public Caffe(String nome,int calorie,double prezzo,String descrizione,String valoriNutrizionali,boolean caffeina)
     {
-        super(nome, calorie, prezzo, descrizione);
+        super(nome, calorie, prezzo, descrizione,valoriNutrizionali);
         this.caffeina=caffeina;
     }
     public boolean getCaffeina()
@@ -19,7 +19,7 @@ public class Caffe extends Prodotto
     @Override
     public String toString()
     {
-        return "Nome: " + getNome() + " Calorie: " + getCalorie() + " Prezzo: " + getPrezzo() + " Descrizione: " + getDescrizione() + " Caffeina: " + getCaffeina();
+        return "Nome: " + getNome() + " Calorie: " + getCalorie() + " Prezzo: " + getPrezzo() + " Descrizione: " + getDescrizione() +  " Valori nutrizionali: " + getValoriNutrizionali() + " Caffeina: " + getCaffeina();
     }
     
 }

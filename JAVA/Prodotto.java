@@ -5,12 +5,15 @@ public class Prodotto
     private int calorie;
     private double prezzo;
     private String descrizione;
-    public Prodotto(String nome,int calorie,double prezzo,String descrizione)
+    private String valoriNutrizionali;
+    public Prodotto(String nome,int calorie,double prezzo,String descrizione,String valoriNutrizionali)
     {
         this.nome=nome;
         this.calorie=calorie;
         this.prezzo=prezzo;
         this.descrizione=descrizione;
+        this.valoriNutrizionali=valoriNutrizionali;
+        
     }
     public String getNome()
     {
@@ -27,6 +30,10 @@ public class Prodotto
     public String getDescrizione()
     {
         return this.descrizione;
+    }
+    public String getValoriNutrizionali()
+    {
+        return this.valoriNutrizionali;
     }
     public void setNome(String nome)
     {
@@ -45,10 +52,14 @@ public class Prodotto
     {
         this.descrizione=descrizione;
     }
+    public void setValoriNutrizionali(String valoriNutrizionali) 
+    {
+        this.valoriNutrizionali=valoriNutrizionali;
+    }
     @Override
     public String toString()
     {
-        return "Nome: " + getNome() + " Calorie: " + getCalorie() + " Prezzo: " + getPrezzo() + " Descrizione: " + getDescrizione();
+        return "Nome: " + getNome() + " Calorie: " + getCalorie() + " Prezzo: " + getPrezzo() + " Descrizione: " + getDescrizione() + "Valori nutrizionali: " + getValoriNutrizionali();
     }
 
 
