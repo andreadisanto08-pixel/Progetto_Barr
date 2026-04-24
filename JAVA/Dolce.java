@@ -1,14 +1,14 @@
 package JAVA;
 public class Dolce extends Prodotto
 {
-    public Dolce(String nome,int calorie,double prezzo,String descrizione,String valoriNutrizionali)
+    public Dolce(String nome,double prezzo,String descrizione,String valoriNutrizionali)
     {
-        super(nome, calorie, prezzo, descrizione,valoriNutrizionali);
+        super(nome,prezzo,descrizione,valoriNutrizionali);
     }
     @Override
     public String toString()
     {
-        return "Nome: " + getNome() + " Calorie: " + getCalorie() + " Prezzo: " + getPrezzo() + " Descrizione: " + getDescrizione()  + " Valori nutrizionali: " + getValoriNutrizionali() ;
+        return "Nome: " + getNome() + " Prezzo: " + getPrezzo() + " Descrizione: " + getDescrizione()  + " Valori nutrizionali: " + getValoriNutrizionali() ;
     }
     
 }

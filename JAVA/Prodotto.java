@@ -2,14 +2,12 @@ package JAVA;
 public class Prodotto
 {
     private String nome;
-    private int calorie;
     private double prezzo;
     private String descrizione;
     private String valoriNutrizionali;
-    public Prodotto(String nome,int calorie,double prezzo,String descrizione,String valoriNutrizionali)
+    public Prodotto(String nome,double prezzo,String descrizione,String valoriNutrizionali)
     {
         this.nome=nome;
-        this.calorie=calorie;
         this.prezzo=prezzo;
         this.descrizione=descrizione;
         this.valoriNutrizionali=valoriNutrizionali;
@@ -18,10 +16,6 @@ public class Prodotto
     public String getNome()
     {
         return this.nome;
-    }
-    public int getCalorie()
-    {
-        return this.calorie;
     }
     public double getPrezzo()
     {
@@ -39,11 +33,6 @@ public class Prodotto
     {
         this.nome=nome;
     }
-    public void setCalorie(int calorie)
-    {
-        this.calorie=calorie;
-
-    }
     public void setPrezzo(double prezzo)
     {
         this.prezzo=prezzo;
@@ -59,7 +48,7 @@ public class Prodotto
     @Override
     public String toString()
     {
-        return "Nome: " + getNome() + " Calorie: " + getCalorie() + " Prezzo: " + getPrezzo() + " Descrizione: " + getDescrizione() + "Valori nutrizionali: " + getValoriNutrizionali();
+        return "Nome: " + getNome() +  " Prezzo: " + getPrezzo() + " Descrizione: " + getDescrizione() + "Valori nutrizionali: " + getValoriNutrizionali();
     }
 
 

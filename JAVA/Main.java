@@ -4,7 +4,8 @@ public class Main
 {
     public static void main(String[] args) 
     {
-        Caffe Espresso = new Caffe("Espresso", 2, 1.00, "Nero", "Proteine: 0 g  Carboidrati: 0 g Grassi: 0 g", false);
+        Caffe Cappuccino = new Caffe(null, 0, null, null, false);
+        /*togliere le calorie Caffe Espresso = new Caffe("Espresso", 2, 1.00, "Nero", "Proteine: 0 g  Carboidrati: 0 g Grassi: 0 g", false);
         Caffe Cappuccino = new Caffe("Cappuccino", 80, 0.80, "Latte + caffè", "Proteine: 4 g  Carboidrati: 8 g Grassi: 4 g", true);
         Caffe LatteMacchiato =new Caffe("Latte macchiato", 120, 1.50, "Latte + caffè", "Proteine: 6 g  Carboidrati: 12 g Grassi: 5 g", false);
         Caffe CaffeAmericano = new Caffe("Caffè Americano", 5, 1.50, "Caffè Lungo", "Proteine: 0 g  Carboidrati: 1 g Grassi: 0 g", false);
@@ -23,8 +24,7 @@ public class Main
         Bibita Bibite = new Bibita("Bibite", 120, 1.20, "Zuccherate", "Proteine: 0 g  Carboidrati: 30 g Grassi: 0 g");
         Bibita SuccoDiFrutta = new Bibita("Succo di frutta", 80, 1.50, "Frutta", "Proteine: 0 g  Carboidrati: 20 g Grassi: 0 g");
         Bibita TeFreddo = new Bibita("Tè Freddo", 60, 1.50, "Zuccherato", "Proteine: 0 g  Carboidrati: 15 g Grassi: 0 g");
-        Bibita SpremutaArancia = new Bibita("Spremuta D'Arancia", 100, 2.00, "Fresca", "Proteine: 2 g  Carboidrati: 22 g Grassi: 0 g");
-
+        Bibita SpremutaArancia = new Bibita("Spremuta D'Arancia", 100, 2.00, "Fresca", "Proteine: 2 g  Carboidrati: 22 g Grassi: 0 g"); togliere le calorie*/
         ArrayList<BarManager> Bar = new ArrayList<>();
         Bar.add(new BarManager());
         try
