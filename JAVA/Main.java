@@ -1,5 +1,5 @@
 package JAVA;
-import GUI.FrameLogin;
+import GUI.FrameOrdina;
 import java.util.ArrayList;
 public class Main 
 {
@@ -27,11 +27,15 @@ public class Main
         Bibita TeFreddo = new Bibita("Tè Freddo", 60, 1.50, "Zuccherato", "Proteine: 0 g  Carboidrati: 15 g Grassi: 0 g");
         Bibita SpremutaArancia = new Bibita("Spremuta D'Arancia", 100, 2.00, "Fresca", "Proteine: 2 g  Carboidrati: 22 g Grassi: 0 g"); togliere le calorie*/
         ArrayList<BarManager> Bar = new ArrayList<>();
-        Utente utente1 = new Utente("Marco", "Gisella" ,"1", "Caramella12", "marcogisella012@gmail.com", false, 200);
+        Utente utente1 = new Utente("Marco", "Gisella" ,"1", "a", "sc", false, 200,false);
+        Utente utente2 = new Utente("Marcod", "Gisella" ,"2", "b", "sc", false, 200,false);
+        Utente utente3 = new Utente("Marcof", "Gisella" ,"3", "c", "sc", false, 200,false);
         ArrayList<UtenteManager> ManagerUtenti = new ArrayList<>();
         ManagerUtenti.add(new UtenteManager());
         ManagerUtenti.get(0).aggiungiUtente(utente1);
-        new FrameLogin(ManagerUtenti);
+        ManagerUtenti.get(0).aggiungiUtente(utente2);
+        ManagerUtenti.get(0).aggiungiUtente(utente3);
+        new FrameOrdina(ManagerUtenti);
         Bar.add(new BarManager());
         try
         {

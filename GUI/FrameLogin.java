@@ -15,8 +15,10 @@ public class FrameLogin
     JPasswordField campoPassword;
     JLabel labelErrore;
     ArrayList<UtenteManager> ManagerUtenti;
-    public FrameLogin(ArrayList<UtenteManager> ManagerUtenti)
+    String destinazione;
+    public FrameLogin(ArrayList<UtenteManager> ManagerUtenti,String destinazione)
     {
+        this.destinazione=destinazione;
         this.ManagerUtenti= ManagerUtenti;
         //Frame base
         frame = new JFrame();
@@ -59,9 +61,24 @@ public class FrameLogin
     {
         String email = campoEmail.getText();
         String password = new String(campoPassword.getPassword());
-        ManagerUtenti.get(0).login(email, password, labelErrore);
+        boolean trovato = ManagerUtenti.get(0).login(email, password, labelErrore);
+        if(trovato)
+        {
+            frame.dispose();
+            if(destinazione.equals("Ordina"))
+            {
+                new FrameOrdina(ManagerUtenti);
+            }
+            else if(destinazione.equals("Visualizza ordini"))
+            {
+                new FrameVisualizzaOrdini();
+            }
+        }
+        
 
     }
+
+    
 
     
 }

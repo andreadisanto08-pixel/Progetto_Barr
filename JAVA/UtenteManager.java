@@ -6,11 +6,11 @@ import javax.swing.JLabel;
 public class UtenteManager 
 {
     private ArrayList<Utente> Utenti;
+    
     public UtenteManager()
     {
         this.Utenti = new ArrayList<>();
     }
-
     public ArrayList<Utente> getUtenti() {
         return Utenti;
     }
@@ -18,22 +18,28 @@ public class UtenteManager
     public void setUtenti(ArrayList<Utente> Utenti) {
         this.Utenti = Utenti;
     }
+
     public void aggiungiUtente(Utente p)
     {
         Utenti.add(p);
 
     }
-    public void login(String email,String password,JLabel labelMessaggio)
+    public boolean login(String email,String password,JLabel labelMessaggio)
     {
-        int i=0;
+        int i;
         boolean trovato=false;
         for(i=0;i<Utenti.size();i++)
         {
             if(email.equals(Utenti.get(i).getEmail()) && password.equals(Utenti.get(i).getPassword()))
             {
                 trovato=true;
+                Utenti.get(i).setUtenteLoggato(true);
+                break;
             }
-
+            else
+            {
+                Utenti.get(i).setUtenteLoggato(false);
+            }
             
         }
         if(trovato==true)
@@ -44,6 +50,7 @@ public class UtenteManager
         {
             labelMessaggio.setText("Errore , password o email incorretti");
         }
+        return trovato;
     }
     
 }

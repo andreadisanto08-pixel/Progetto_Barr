@@ -9,7 +9,8 @@ public class Utente
     private String email;
     private double saldo;
     private boolean permessoGestione;
-    public Utente(String nome,String cognome,String codiceUnivoco,String password,String email,boolean permessoGestione,double saldo)
+    private boolean utenteLoggato;
+    public Utente(String nome,String cognome,String codiceUnivoco,String password,String email,boolean permessoGestione,double saldo,boolean utenteLoggato)
 
     {
         this.nome=nome;
@@ -19,6 +20,7 @@ public class Utente
         this.email=email;
         this.permessoGestione=permessoGestione;
         this.saldo=saldo;
+        this.utenteLoggato=false;
     }
 
     public String getNome() {
@@ -48,7 +50,10 @@ public class Utente
     public double getSaldo() {
         return saldo;
     }
-    
+    public boolean getUtenteLoggato()
+    {
+        return utenteLoggato;
+    }
     public void setCodiceUnivoco(String codiceUnivoco) {
         this.codiceUnivoco = codiceUnivoco;
     }
@@ -72,8 +77,11 @@ public class Utente
     public void setPermessoGestione(boolean permessoGestione) {
         this.permessoGestione = permessoGestione;
     }
-    
 
+    public void setUtenteLoggato(boolean utenteLoggato) {
+        this.utenteLoggato = utenteLoggato;
+    }
+    
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }

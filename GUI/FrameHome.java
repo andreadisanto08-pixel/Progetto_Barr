@@ -1,8 +1,11 @@
 package GUI;
+import JAVA.UtenteManager;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -10,8 +13,10 @@ import javax.swing.JScrollPane;
 public class FrameHome 
 {
     JFrame frame;
-    public FrameHome()
+    ArrayList<UtenteManager> ManagerUtenti;
+    public FrameHome(ArrayList<UtenteManager> ManagerUtenti)
     {
+        this.ManagerUtenti=ManagerUtenti;
         //Frame
         frame = new JFrame();
         frame.setLayout(null);
@@ -46,10 +51,15 @@ public class FrameHome
         ImageIcon finalColazione = new ImageIcon(scaledColazione);
         immagineColazione.setIcon(finalColazione);
         immagineColazione.setBounds(100,700,500,800);
+        //Bottoni
+        JButton bottoneOrdina = new JButton("Ordina");
+        bottoneOrdina.setBounds(0,1350,250,150);
+        JButton bottoneVisualizzaOrdini = new JButton("Visualizza ordini");
+        bottoneVisualizzaOrdini.setBounds(250,1350,250,150);
         //Panel scroll
         JPanel panel = new JPanel();
         panel.setLayout(null);
-        panel.setPreferredSize(new Dimension(500,1400));
+        panel.setPreferredSize(new Dimension(500,1500));
         JScrollPane scrollPanel = new JScrollPane(panel);
         scrollPanel.setBounds(0,0,500,600);
         scrollPanel.getVerticalScrollBar().setUnitIncrement(16);
@@ -57,12 +67,21 @@ public class FrameHome
         panel.add(labelTesto);
         panel.add(immaginePanini);
         panel.add(immagineColazione);
-        //Bottoni
-        
+        panel.add(bottoneVisualizzaOrdini);
+        panel.add(bottoneOrdina);
         //FrameAdd
         frame.add(scrollPanel);
+        //action listeners
+        bottoneOrdina.addActionListener(e->portaLogin("Ordina"));
+        bottoneVisualizzaOrdini.addActionListener(e->portaLogin("Visualizza ordini"));
         //Frame setVisibile
         frame.setVisible(true);
+    }
+    public void portaLogin(String destinazione)
+    {
+        
+        new FrameLogin(ManagerUtenti,destinazione);
+        frame.dispose();
     }
     
 }
