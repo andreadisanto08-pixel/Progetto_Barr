@@ -1,4 +1,6 @@
 package GUI;
+import JAVA.BarManager;
+import JAVA.OrdinazioneManager;
 import JAVA.UtenteManager;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -16,8 +18,16 @@ public class FrameLogin
     JLabel labelErrore;
     ArrayList<UtenteManager> ManagerUtenti;
     String destinazione;
-    public FrameLogin(ArrayList<UtenteManager> ManagerUtenti,String destinazione)
+    ArrayList<BarManager> Bar;
+    ArrayList<OrdinazioneManager> Ordinazioni;
+    String nomeUtente;
+    String storicoOrdini;
+    public FrameLogin(ArrayList<UtenteManager> ManagerUtenti,String destinazione,ArrayList<BarManager> Bar,ArrayList<OrdinazioneManager> Ordinazioni,String nomeUtente,String storicoOrdini)
     {
+        this.nomeUtente=nomeUtente;
+        this.storicoOrdini=storicoOrdini;
+        this.Ordinazioni=Ordinazioni;
+        this.Bar=Bar;
         this.destinazione=destinazione;
         this.ManagerUtenti= ManagerUtenti;
         //Frame base
@@ -59,19 +69,36 @@ public class FrameLogin
     //metodo login per actionlistener
     public void loginGui()
     {
+        boolean gestionePermesso=false;
         String email = campoEmail.getText();
         String password = new String(campoPassword.getPassword());
         boolean trovato = ManagerUtenti.get(0).login(email, password, labelErrore);
         if(trovato)
         {
-            frame.dispose();
+            
             if(destinazione.equals("Ordina"))
             {
-                new FrameOrdina(ManagerUtenti);
+                frame.dispose();
+                new FrameOrdina(ManagerUtenti,Bar,Ordinazioni);
             }
             else if(destinazione.equals("Visualizza ordini"))
             {
-                new FrameVisualizzaOrdini();
+                for(int i=0;i<ManagerUtenti.get(0).getUtenti().size();i++)
+                {
+                    if(ManagerUtenti.get(0).getUtenti().get(i).getUtenteLoggato()==true && ManagerUtenti.get(0).getUtenti().get(i).getPermessoGestione()==true)
+                    {
+                        gestionePermesso=true;
+                        labelErrore.setText("Permesso concesso");
+                        frame.dispose();
+                        new FrameVisualizzaOrdini(nomeUtente,storicoOrdini,ManagerUtenti,Bar,Ordinazioni);
+                    }
+
+                    
+                }
+                if(gestionePermesso==false)
+                {
+                    labelErrore.setText("Permesso negato");
+                }
             }
         }
         
