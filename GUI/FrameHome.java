@@ -25,7 +25,7 @@ public class FrameHome
         frame.setSize(500,600);
         frame.setResizable(false);
         frame.setBackground(Color.WHITE);
-        ImageIcon imageLogo = new ImageIcon("Progetto_Barr/img/logo.png");
+        ImageIcon imageLogo = new ImageIcon("img/logo.png");
         frame.setIconImage(imageLogo.getImage());
         //LabelImmagineLogo
         JLabel immagineLabel = new JLabel();
@@ -39,14 +39,14 @@ public class FrameHome
         labelTesto.setBounds(25,300,500,150);
         //Label ImmaginePanini
         JLabel immaginePanini = new JLabel();
-        ImageIcon iconPanini = new ImageIcon("Progetto_Barr/img/ImmaginePanini.png");
+        ImageIcon iconPanini = new ImageIcon("img/ImmaginePanini.png");
         Image scaled = iconPanini.getImage().getScaledInstance(300, 400,Image.SCALE_SMOOTH);
         ImageIcon finalIconPanini = new ImageIcon(scaled);
         immaginePanini.setIcon(finalIconPanini);
         immaginePanini.setBounds(100,240,500,800);
         //Label ImmagineColazione
         JLabel immagineColazione = new JLabel();
-        ImageIcon iconColazione = new ImageIcon("Progetto_Barr/img/ColazioneImmagine.png");
+        ImageIcon iconColazione = new ImageIcon("img/ColazioneImmagine.png");
         Image scaledColazione = iconColazione.getImage().getScaledInstance(300, 400, Image.SCALE_SMOOTH);
         ImageIcon finalColazione = new ImageIcon(scaledColazione);
         immagineColazione.setIcon(finalColazione);

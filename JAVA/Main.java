@@ -1,4 +1,6 @@
+
 package JAVA;
+import GUI.FrameHome;
 import GUI.FrameOrdina;
 import java.util.ArrayList;
 public class Main 
@@ -35,7 +37,7 @@ public class Main
         ManagerUtenti.get(0).aggiungiUtente(utente1);
         ManagerUtenti.get(0).aggiungiUtente(utente2);
         ManagerUtenti.get(0).aggiungiUtente(utente3);
-        new FrameOrdina(ManagerUtenti);
+        new FrameHome(ManagerUtenti);
         Bar.add(new BarManager());
         try
         {
