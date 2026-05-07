@@ -20,10 +20,8 @@ public class FrameOrdina
     JFrame frame;
     ArrayList<UtenteManager> ManagerUtenti;
     ArrayList<BarManager> Bar;
-    ArrayList<OrdinazioneManager> Ordinazioni;
-    String storicoOrdini = "";
-    String nomeUtente=""; 
-    int n;
+    ArrayList<OrdinazioneManager> Ordinazioni; 
+    int n=0;
     double saldo;
     Utente u;
     public FrameOrdina(ArrayList<UtenteManager> ManagerUtenti,ArrayList<BarManager> Bar,ArrayList<OrdinazioneManager> Ordinazioni) 
@@ -33,7 +31,7 @@ public class FrameOrdina
         this.saldo=saldo;
         this.ManagerUtenti=ManagerUtenti;
         Ordinazioni.add(new OrdinazioneManager());
-        n++;
+        n = Ordinazioni.size() - 1;
         frame = new JFrame("Ordina");
         frame.setSize(500,600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -49,7 +47,6 @@ public class FrameOrdina
             {
                 saldo = ManagerUtenti.get(0).getUtenti().get(i).getSaldo();
                 nome = ManagerUtenti.get(0).getUtenti().get(i).getNome();
-                nomeUtente = nome;
                 codiceUnivoco = ManagerUtenti.get(0).getUtenti().get(i).getCodiceUnivoco();
                 u = ManagerUtenti.get(0).getUtenti().get(i);
             }
@@ -72,7 +69,7 @@ public class FrameOrdina
         //label espresso
         JLabel labelEspresso = new JLabel(Bar.get(0).getProdotti().get(1).getNome() + " " + Bar.get(0).getProdotti().get(1).getDescrizione());
         JLabel image2 = new JLabel();
-        ImageIcon imagei2 = new ImageIcon("img/CaffeEspresso.webp");
+        ImageIcon imagei2 = new ImageIcon("img/caffe-espresso-quali-sono-le-sue-origini_split.jpg");
         Image scaled2 = imagei2.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
         image2.setIcon(new ImageIcon(scaled2));
         JButton espressoButton = new JButton("+");
@@ -82,7 +79,7 @@ public class FrameOrdina
         //label macchiato
         JLabel labelMacchiato = new JLabel(Bar.get(0).getProdotti().get(2).getNome() + " " + Bar.get(0).getProdotti().get(2).getDescrizione());
         JLabel image3 = new JLabel();
-        ImageIcon imagei3 = new ImageIcon("img/imgCaffeMacchiat0.jfif");
+        ImageIcon imagei3 = new ImageIcon("img/download (1).jpeg");
         Image scaled3 = imagei3.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
         image3.setIcon(new ImageIcon(scaled3));
         JButton macchiatoButton = new JButton("+");
@@ -112,7 +109,7 @@ public class FrameOrdina
         //label wurstel
         JLabel labelWurstel = new JLabel(Bar.get(0).getProdotti().get(5).getNome() + " " + Bar.get(0).getProdotti().get(5).getDescrizione());
         JLabel image6 = new JLabel();
-        ImageIcon imagei6 = new ImageIcon("img/PaninoWurstel.jpg");
+        ImageIcon imagei6 = new ImageIcon("img/images (3).jpeg");
         Image scaled6 = imagei6.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
         image6.setIcon(new ImageIcon(scaled6));
         JButton wurstelButton = new JButton("+");
@@ -257,13 +254,13 @@ public class FrameOrdina
     {
          u.setSaldo(saldo);
          labelMessaggioFinale.setText("");  
-         Ordinazioni.get(0).getProdotti().clear();
+         Ordinazioni.get(n).getProdotti().clear();
 
     }
     public void tornaallaHome()
     {
         frame.dispose();
-        new FrameHome(ManagerUtenti, Bar, Ordinazioni,nomeUtente,storicoOrdini);
+        new FrameHome(ManagerUtenti, Bar, Ordinazioni);
     }
     public void ordinazione(JLabel labelMessaggioFinale,Prodotto p,Utente u)
     {
@@ -271,12 +268,11 @@ public class FrameOrdina
 
         try
         {
-            Ordinazioni.get(0).aggiungiOrdinazione(u, p);
+            Ordinazioni.get(n).aggiungiOrdinazione(u, p);
             u.setSaldo(u.getSaldo()-p.getPrezzo());
-            storicoOrdini += nomeUtente + " ha ordinato: " + p.getNome() + " - " + p.getPrezzo() + "€\n";
-            for(int i=0;i<Ordinazioni.get(0).getProdotti().size();i++)
+            for(int i=0;i<Ordinazioni.get(n).getProdotti().size();i++)
             {
-                Prodotto pe = Ordinazioni.get(0).getProdotti().get(i);
+                Prodotto pe = Ordinazioni.get(n).getProdotti().get(i);
                 s = s + "Hai ordinato: " + pe.getNome() + " al costo di " + pe.getPrezzo() + " € " + "<br>";
                 
 

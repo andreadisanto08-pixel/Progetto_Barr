@@ -21,7 +21,7 @@ public class Main
         Bibita Succodifrutta = new Bibita("Succo di Frutta", 2.00, "Succo alla pesca 20cl", "90 kcal, 0.6g proteine");
         ArrayList<BarManager> Bar = new ArrayList<>();
         ArrayList<OrdinazioneManager> Ordinazioni = new ArrayList<>();
-        Utente utente1 = new Utente("Marco", "Gisella" ,"1", "a", "sc", true, 2,false);
+        Utente utente1 = new Utente("Marco", "Gisella" ,"1", "a", "sc", true, 20,false);
         Utente utente2 = new Utente("Marcod", "Gisella" ,"2", "b", "sc", false, 200,false);
         Utente utente3 = new Utente("Marcof", "Gisella" ,"3", "c", "sc", false, 200,false);
         ArrayList<UtenteManager> ManagerUtenti = new ArrayList<>();
@@ -52,9 +52,7 @@ public class Main
         {
             System.out.println(e.getMessage());
         }
-        String nomeUtente = "";
-        String storicoOrdini = "";
-        new FrameHome(ManagerUtenti,Bar,Ordinazioni,nomeUtente,storicoOrdini);
+        new FrameHome(ManagerUtenti,Bar,Ordinazioni);
         
         
 

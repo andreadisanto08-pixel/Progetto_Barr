@@ -18,12 +18,8 @@ public class FrameHome
     ArrayList<UtenteManager> ManagerUtenti;
     ArrayList<BarManager> Bar;
     ArrayList<OrdinazioneManager> Ordinazioni;
-    String nomeUtente;
-    String storicoOrdini;
-    public FrameHome(ArrayList<UtenteManager> ManagerUtenti,ArrayList<BarManager> Bar,ArrayList<OrdinazioneManager> Ordinazioni,String nomeUtente,String storicoOrdini)
+    public FrameHome(ArrayList<UtenteManager> ManagerUtenti,ArrayList<BarManager> Bar,ArrayList<OrdinazioneManager> Ordinazioni)
     {
-        this.storicoOrdini=storicoOrdini;
-        this.nomeUtente=nomeUtente;
         this.Ordinazioni=Ordinazioni;
         this.Bar=Bar;
         this.ManagerUtenti=ManagerUtenti;
@@ -90,7 +86,7 @@ public class FrameHome
     public void portaLogin(String destinazione)
     {
         
-        new FrameLogin(ManagerUtenti,destinazione,Bar,Ordinazioni,nomeUtente,storicoOrdini);
+        new FrameLogin(ManagerUtenti,destinazione,Bar,Ordinazioni);
         frame.dispose();
     }
     

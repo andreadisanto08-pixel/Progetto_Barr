@@ -20,12 +20,8 @@ public class FrameLogin
     String destinazione;
     ArrayList<BarManager> Bar;
     ArrayList<OrdinazioneManager> Ordinazioni;
-    String nomeUtente;
-    String storicoOrdini;
-    public FrameLogin(ArrayList<UtenteManager> ManagerUtenti,String destinazione,ArrayList<BarManager> Bar,ArrayList<OrdinazioneManager> Ordinazioni,String nomeUtente,String storicoOrdini)
+    public FrameLogin(ArrayList<UtenteManager> ManagerUtenti,String destinazione,ArrayList<BarManager> Bar,ArrayList<OrdinazioneManager> Ordinazioni)
     {
-        this.nomeUtente=nomeUtente;
-        this.storicoOrdini=storicoOrdini;
         this.Ordinazioni=Ordinazioni;
         this.Bar=Bar;
         this.destinazione=destinazione;
@@ -90,7 +86,7 @@ public class FrameLogin
                         gestionePermesso=true;
                         labelErrore.setText("Permesso concesso");
                         frame.dispose();
-                        new FrameVisualizzaOrdini(nomeUtente,storicoOrdini,ManagerUtenti,Bar,Ordinazioni);
+                        new FrameVisualizzaOrdini(ManagerUtenti,Bar,Ordinazioni);
                     }
 
                     
