@@ -41,7 +41,7 @@ public class FrameHome
         immagineLabel.setIcon(immagineLogo);
         //LabelTesto
         JLabel labelTesto = new JLabel();
-        labelTesto.setText("<html><p style='font-size:20px;font-weight:bold'>Benvenuto al DaBeppe bar</p><p style='font-size:11px'>Concediti una colazione o un panino a un prezzo imperdibile!</p></html>");
+        labelTesto.setText("<html><p style='font-size:20px;font-weight:bold'>Benvenuto al DaBeppe bar.</p><p style='font-size:11px'>Concediti una colazione o un panino a un prezzo imperdibile!</p><<p> maggiori informazioni: andreadisanto08@marocnigorgonzola.it</html>");
         labelTesto.setBounds(25,300,500,150);
         //Label ImmaginePanini
         JLabel immaginePanini = new JLabel();
